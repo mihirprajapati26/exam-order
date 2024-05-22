@@ -1,0 +1,33 @@
+<!-- Define a function to render each goal -->
+<% function renderOrder(order) { %>
+<div class="item-preview">
+  <a href="/single-order/<%= order._id %>">
+    <h2>Title: <%= order.customer %></h2>
+    <p>Written by Mihir</p>
+  </a>
+</div>
+<% } %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Home page" }) %>
+
+  <body>
+    <%- include('partials/navbar.ejs') %>
+    <%- include('partials/hero.ejs') %>
+    <div class="content">
+      <div class="home">
+        <div class="item-list">
+          <% if (orders.length > 0) { %>
+          <!-- Call the renderOrders function for each goal -->
+          <% goals.forEach(renderOrders); %> <% } else { %>
+          <p>No goals found.</p>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <%- include('partials/ads.ejs') %>
+    <%- include('partials/footer.ejs') %>
+  </body>
+</html>
